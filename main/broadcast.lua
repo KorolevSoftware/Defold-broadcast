@@ -1,4 +1,7 @@
--- broadcast
+-- Broadcast
+-- Использую __index для перехвата обращения к элементам таблицы.
+-- Можно наплодить каналов что будут висеть в памяти. Это минус.
+-- Я думаю стоит сделать создание и удаление канала отдельно. Или метод remove_unused для чистки от пустых каналов.
 
 local channel = require "main.channel"
 
@@ -13,4 +16,4 @@ function M:__index(name)
 	return self.channels[name]
 end
 
-return setmetatable(M, M)
+return setmetatable(M, M) -- Думаю так правильно?
