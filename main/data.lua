@@ -9,4 +9,6 @@ M.GROUP_B = hash("B")
 M.GROUP_A = hash("A")
 M.X_SPAWN_OFFSET = 700
 M.Y_SPAWN_OFFSET = 64
+M.POWER = 500
+
 return M
