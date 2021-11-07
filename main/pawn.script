@@ -1,6 +1,6 @@
 local broadcast = require "main.broadcast"
 
-go.property("channel", hash("group_A"))
+go.property("channel", hash("channel"))
 
 function init(self)
 	broadcast[self.channel]:register("force")

@@ -1,16 +1,17 @@
+local data = require "main.data"
 
 local function make_group(number)
 	if number % 2 == 0 then
-		return hash("group_A"), vmath.vector4(1, 0, 0, 1)
+		return data.GROUP_A, data.TINT_RED
 	else
-		return hash("group_B"), vmath.vector4(0, 1, 0, 1)
+		return data.GROUP_B, data.TINT_GREEN
 	end
 end
 
 function init(self)
-	for i = 1, 20, 1 do
-		local x_offset = vmath.lerp(math.random(), -700, 700)
-		local spawn_position = vmath.vector3(x_offset, 64*i, 0) + go.get_position()
+	for i = 1, data.SPHERE_COUNT, 1 do
+		local x_offset = vmath.lerp(math.random(), -data.X_SPAWN_OFFSET, data.X_SPAWN_OFFSET)
+		local spawn_position = vmath.vector3(x_offset, data.Y_SPAWN_OFFSET*i, 0) + go.get_position()
 		local channel, tint = make_group(i)
 		local id = factory.create("#factory", spawn_position, nil, {channel = channel})
 		local url = msg.url(nil, id, "sprite")
