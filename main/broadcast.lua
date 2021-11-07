@@ -12,4 +12,4 @@ function M:__index(name)
 	return self[name]
 end
 
-return setmetatable(M, M) -- Думаю так правильно?
+return setmetatable({}, M) -- Думаю так правильно?
