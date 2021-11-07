@@ -1,0 +1,17 @@
+local broadcast = require "main.broadcast"
+
+go.property("channel", hash("group_A"))
+
+function init(self)
+	broadcast[self.channel]:register("force")
+end
+
+function final(self)
+	broadcast[self.channel]:unregister("force")
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("force") then
+		msg.post("#collisionobject", "apply_force", {force = message.force, position = go.get_world_position()})
+	end
+end

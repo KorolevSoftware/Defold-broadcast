@@ -1,0 +1,23 @@
+[bootstrap]
+main_collection = /main/main.collectionc
+render = /rendercam/rendercam.renderc
+
+[script]
+shared_state = 1
+
+[display]
+width = 960
+height = 960
+
+[android]
+input_method = HiddenInputField
+
+[project]
+title = My Project
+developer = 
+dependencies#0 = https://github.com/rgrams/rendercam/archive/1.0.3.zip
+
+[physics]
+debug = 0
+gravity_y = -100.0
+
